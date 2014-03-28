@@ -15,5 +15,6 @@ public class SimpleLambdaTest {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> doubles = simpleLambda.doubleNumbers(numbers);
         assertThat(doubles).containsExactly(2,4,6,8,10);
+
     }
 }
