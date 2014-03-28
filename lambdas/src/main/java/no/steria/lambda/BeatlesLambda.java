@@ -10,4 +10,9 @@ public class BeatlesLambda {
         Stream<String> titles = songs.stream().map(s -> s.getName());
         return titles.collect(Collectors.toList());
     }
+
+    public int albumLength(String albumName) {
+        List<Song> songs = Beatles.album(albumName).getSongs();
+        return songs.stream().map(s -> s.getLength()).reduce(Integer::sum).orElse(0);
+    }
 }

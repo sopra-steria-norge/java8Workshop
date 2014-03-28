@@ -34,7 +34,11 @@ public class BeatlesLambdaTest {
         "Yesterday",
         "Dizzy Miss Lizzy"
         );
+    }
 
+    @Test
+    public void shouldFindLengthOfAlbum() throws Exception {
+        assertThat(beatlesLambda.albumLength("Please please me")).isEqualTo(1948);
 
     }
 }
