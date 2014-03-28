@@ -20,4 +20,8 @@ public class BeatlesLambda {
         Stream<String> map = songs.stream().filter(s -> s.getLength() > length).map(s -> s.getName());
         return map.collect(Collectors.toList());
     }
+
+    public int totalLength(List<Album> albums) {
+        return albums.stream().flatMap(a -> a.getSongs().stream()).map(s -> s.getLength()).reduce(Integer::sum).orElse(0);
+    }
 }

@@ -49,4 +49,17 @@ public class BeatlesLambdaTest {
                 );
 
     }
+
+    @Test
+    public void shouldFindTotalLength() throws Exception {
+        // Hint: flatmap
+        assertThat(beatlesLambda.totalLength(Beatles.allAlbums())).isEqualTo(29996);
+
+    }
+
+    // Extra (write test for yourself:
+    // Which album is longest?
+    // Which album has fewest songs
+    // Which album has the highest avarage song length
+    // Sort all titles by first letter and then length
 }
