@@ -39,6 +39,14 @@ public class BeatlesLambdaTest {
     @Test
     public void shouldFindLengthOfAlbum() throws Exception {
         assertThat(beatlesLambda.albumLength("Please please me")).isEqualTo(1948);
+    }
+
+    @Test
+    public void shouldFindTitlesWithLengthGreaterThan() throws Exception {
+        assertThat(beatlesLambda.songsLongerThan(Beatles.album("Please please me").getSongs(),150))
+                .containsExactly(
+                        "I Saw Her Standing There", "Anna (Go to Him)", "Baby It's You", "Twist and Shout"
+                );
 
     }
 }
