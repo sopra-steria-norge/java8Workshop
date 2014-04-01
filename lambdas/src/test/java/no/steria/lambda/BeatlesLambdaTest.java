@@ -57,7 +57,8 @@ public class BeatlesLambdaTest {
 
     }
 
-    // Extra (write test for yourself:
+    // Extra (write test for yourself):
+    // Find every song that starts with an "A"
     // Which album is longest?
     // Which album has fewest songs
     // Which album has the highest avarage song length
