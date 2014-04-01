@@ -1,9 +1,11 @@
+var LightBulb = Java.type("no.steria.nashorn.light.LightBulb")
+
 function sayHelloImpl(name) {
-    return "";
+    return "Hello "+name;
 }
 
 function turnOnLightBulbImpl() {
-
+    LightBulb.getInstance().turnOn();
 }
 
 function newHelloNashorn() {
