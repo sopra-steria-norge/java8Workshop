@@ -8,30 +8,41 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.Year;
 
+import static java.time.DayOfWeek.*;
+import static java.time.temporal.TemporalAdjusters.*;
+
 public class SimpleJavaTime {
 
     public LocalDateTime findEarliestDate(LocalDateTime date, LocalDateTime anotherDate) {
-        return null;
+        return date.isBefore(anotherDate) ? date : anotherDate;
     }
 
     public Period createPeriod(LocalDate fromDate, LocalDate toDate) {
-        return null;
+        return Period.between(fromDate, toDate);
     }
 
     public LocalDate getFirstDayOfNextMonth(LocalDate date) {
-        return null;
+        return date.with(firstDayOfNextMonth());
     }
 
     public LocalDate lastThursdayOfMonth(LocalDate date) {
-        return null;
+        return date.with(lastInMonth(THURSDAY));
     }
 
     public Year nextLeapYear(LocalDate date) {
-        return null;
+        if (date.isLeapYear()) return Year.from(date);
+
+        LocalDate nextYear = date.plusYears(1);
+        return nextLeapYear(nextYear);
     }
 
     public LocalDate nextPayday(LocalDate date) {
-        return null;
+        LocalDate payDay = date.getDayOfMonth() <= 15 ? date.withDayOfMonth(15) : date.withDayOfMonth(15).plusMonths(1);
+
+        if (payDay.getDayOfWeek() == SATURDAY || payDay.getDayOfWeek() == SUNDAY) {
+            payDay = payDay.with(previous(FRIDAY));
+        }
+        return payDay;
     }
 
     public Quarter findQuarterOf(LocalDate date) {
