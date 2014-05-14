@@ -64,6 +64,12 @@ public class BeatlesLambdaTest {
 
     }
 
+    @Test
+    public void shouldFindLongestAlbum() throws Exception {
+        assertThat(beatlesLambda.longestAlbum(Beatles.allAlbums())).isEqualTo("White album");
+
+    }
+
     // Extra (write test for yourself):
     // Which album is longest?
     // Which album has fewest songs

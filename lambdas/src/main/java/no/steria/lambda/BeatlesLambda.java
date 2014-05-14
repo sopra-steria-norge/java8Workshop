@@ -1,8 +1,6 @@
 package no.steria.lambda;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -35,6 +33,13 @@ public class BeatlesLambda {
                 .max(Comparator.comparing(Song::getLength))
                 .map(s -> s.getName() + " : " + s.getLength() + " seconds")
                 .orElse("None found");
+    }
 
+    public String longestAlbum(List<Album> albums) {
+        return albums.stream().flatMap(a -> a.getSongs().stream())
+               .collect(Collectors.groupingBy(Song::getAlbum, Collectors.summingInt(Song::getLength)))
+               .entrySet().stream().max(Map.Entry.comparingByValue(Integer::compareTo))
+               .map(entry -> entry.getKey().getName()).get()
+        ;
     }
 }
