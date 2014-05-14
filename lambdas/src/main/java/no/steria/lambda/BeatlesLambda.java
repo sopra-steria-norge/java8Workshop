@@ -20,4 +20,8 @@ public class BeatlesLambda {
     public int totalLength(List<Album> albums) {
         return 0;
     }
+
+    public String longestTitleStaringWith(List<Album> albums, String start) {
+        return null;
+    }
 }
