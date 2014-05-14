@@ -3,6 +3,7 @@ package no.steria.lambda;
 import java.util.ArrayList;
 import java.util.List;
 
+// DO NOT EDIT THIS TO SOLVE TASKS
 public class Album {
     private String name;
     private List<Song> songs = new ArrayList<>();
