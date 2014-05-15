@@ -57,8 +57,20 @@ public class BeatlesLambdaTest {
 
     }
 
+    @Test
+    public void shouldFindNameAndLength() throws Exception {
+        assertThat(beatlesLambda.longestTitleStaringWith(Beatles.allAlbums(),"A")).isEqualTo("A Day in the Life : 339 seconds");
+        assertThat(beatlesLambda.longestTitleStaringWith(Beatles.allAlbums(),"X")).isEqualTo("None found");
+
+    }
+
+    @Test
+    public void shouldFindLongestAlbum() throws Exception {
+        assertThat(beatlesLambda.longestAlbum(Beatles.allAlbums())).isEqualTo("White album");
+
+    }
+
     // Extra (write test for yourself):
-    // Find every song that starts with an "A"
     // Which album is longest?
     // Which album has fewest songs
     // Which album has the highest avarage song length

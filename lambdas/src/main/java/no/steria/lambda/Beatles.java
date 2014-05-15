@@ -23,11 +23,13 @@ public class Beatles {
         }
 
         List<Song> current = null;
+            Album currentAlbum = null;
 
         for (String line : filestr.split("\n")) {
             if (line.startsWith("*")) {
                 current = new ArrayList<>();
-                beatlesAlbums.add(new Album(line.substring(1), current));
+                currentAlbum = new Album(line.substring(1), current);
+                beatlesAlbums.add(currentAlbum);
                 continue;
             }
             String[] lineParts = line.split(";");
@@ -35,7 +37,7 @@ public class Beatles {
             int minutes = Integer.parseInt(time[0]);
             int seconds = Integer.parseInt(time[1]);
 
-            current.add(new Song(lineParts[0],minutes*60+seconds));
+            current.add(new Song(lineParts[0],minutes*60+seconds,currentAlbum));
         }
     }
 
